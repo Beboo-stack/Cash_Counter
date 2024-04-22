@@ -93,7 +93,7 @@ const CarouselHero = () => {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full max-w-[250px] lg:max-w-[400px]"
+      className="w-full max-w-[250px] md:max-w-[350px] lg:max-w-[400px]"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
