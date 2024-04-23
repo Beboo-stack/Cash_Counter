@@ -4,41 +4,9 @@ import React from "react";
 const Footer = () => {
   return (
     <footer class="bg-white">
-      <div class="mx-auto max-w-screen-xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-md">
-          <strong class="block text-center text-xl font-bold text-gray-900 sm:text-3xl">
-            Want us to email you with the latest blockbuster news?
-          </strong>
-
-          <form class="mt-6">
-            <div class="relative max-w-lg">
-              <label class="sr-only" for="email">
-                {" "}
-                Email{" "}
-              </label>
-
-              <input
-                class="w-full rounded-full border-gray-200 bg-gray-100 p-4 pe-32 text-sm font-medium"
-                id="email"
-                type="email"
-                placeholder="john@doe.com"
-              />
-
-              <button class="absolute end-1 top-1/2 -translate-y-1/2 rounded-full bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700">
-                Subscribe
-              </button>
-            </div>
-          </form>
-        </div>
-
+      <div class="mx-auto max-w-screen-xl px-4 pb-8 pt-10 sm:px-6 lg:px-8">
         <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-32">
           <div class="mx-auto max-w-sm lg:max-w-none">
-            <p class="mt-4 text-center text-gray-500 lg:text-left lg:text-lg">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Praesentium natus quod eveniet aut perferendis distinctio iusto
-              repudiandae, provident velit earum?
-            </p>
-
             <div class="mt-6 flex justify-center gap-4 lg:justify-start">
               <a
                 class="text-gray-700 transition hover:text-gray-700/75"
@@ -148,16 +116,10 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="grid grid-cols-1 gap-8 text-center lg:grid-cols-4 lg:text-left justify-center items-center">
+          <div class="grid grid-cols-1 gap-8 text-center lg:flex lg:text-left justify-center items-center">
             <div>
               <Link href="#">
                 <strong class="font-medium text-gray-900"> Home </strong>
-              </Link>
-            </div>
-
-            <div>
-              <Link href="#services">
-                <strong class="font-medium text-gray-900"> Services </strong>
               </Link>
             </div>
 
@@ -168,17 +130,11 @@ const Footer = () => {
             </div>
 
             <div>
-            <Link href="#contact">
+              <Link href="#contact">
                 <strong class="font-medium text-gray-900"> Contact Us </strong>
               </Link>
             </div>
           </div>
-        </div>
-
-        <div class="mt-16 border-t border-gray-100 pt-8">
-          <p class="text-center text-xs/relaxed text-gray-500">
-            © Company 2022. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

@@ -1,124 +1,67 @@
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "@/components/ui/carousel";
-// import Image from "next/image";
-
-// const CarouselHero = () => {
-//   return (
-//     <Carousel>
-//       <CarouselContent>
-//         <CarouselItem className="">
-//           <Image
-//             src="/4.jpg"
-//             className="h-full w-full rounded-xl object-contain"
-//             alt=""
-//             width={500}
-//             height={300}
-//           />
-//         </CarouselItem>
-//         <CarouselItem className="">
-//           <Image
-//             src="/3.jpg"
-//             className="h-full w-full rounded-xl object-contain"
-//             alt=""
-//             width={500}
-//             height={300}
-//           />
-//         </CarouselItem>
-//         <CarouselItem className="">
-//           <Image
-//             src="/2.jpg"
-//             className="h-full w-full rounded-xl object-contain"
-//             alt=""
-//             width={500}
-//             height={300}
-//           />
-//         </CarouselItem>
-//         <CarouselItem className="">
-//           <Image
-//             src="/1.jpg"
-//             className="h-full w-full rounded-xl object-contain"
-//             alt=""
-//             width={500}
-//             height={300}
-//           />
-//         </CarouselItem>
-//       </CarouselContent>
-//       <CarouselPrevious />
-//       <CarouselNext />
-//     </Carousel>
-//   );
-// };
-
-// export default CarouselHero;
 "use client";
-
-import * as React from "react";
-import Autoplay from "embla-carousel-autoplay";
-
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import React from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import SwiperCore, { Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+SwiperCore.use([Navigation, Autoplay]); // Register Swiper modules
 
 const CarouselHero = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  );
+  const sliderRef = useRef(null);
 
-  const img = [
+  const images = [
     {
-      imagePath: "/4.jpg",
+      src: "/1.jpg",
+      type: "image",
     },
     {
-      imagePath: "/3.jpg",
+      src: "/2.jpg",
+      type: "image",
     },
     {
-      imagePath: "/2.jpg",
+      src: "/3.jpg",
+      type: "image",
     },
     {
-      imagePath: "/1.jpg",
+      src: "/4.jpg",
+      type: "image",
+    },
+    {
+      src: "/5.jpg",
+      type: "image",
+    },
+    {
+      src: "/video.mp4",
     },
   ];
 
   return (
-    <Carousel
-      plugins={[plugin.current]}
-      className="w-full max-w-[250px] lg:max-w-[400px]"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
-      <CarouselContent>
-        {img.map((image, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <Image
-                    src={image.imagePath}
-                    alt=""
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-contain"
-                  />
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
+    <div id="products " className="products slider-container max-w-xs md:max-w-lg  ">
+      <Swiper
+        ref={sliderRef}
+        spaceBetween={30} // Add spacing between slides
+        slidesPerView={1} // Show one slide at a time
+        navigation // Enable navigation arrows
+        autoplay={{ delay: 3000 }} // Optional: Enable autoplay with 3 seconds delay
+      >
+        {images.map((item) => (
+          <SwiperSlide key={item.src}>
+            {item.type === "image" ? (
+              <Image src={item.src} alt="" width={500} height={500} />
+            ) : (
+              <video className="w-full h-full self-center" controls>
+                <source src={item.src} type="video/mp4" />
+              </video>
+            )}
+          </SwiperSlide>
         ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+      </Swiper>
+    </div>
   );
 };
 

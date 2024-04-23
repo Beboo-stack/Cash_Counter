@@ -1,17 +1,16 @@
-import Features from "@/components/Features";
+import CarouselHero from "@/components/CarouselHero";
+import Description from "@/components/Description";
 import Form from "@/components/Form";
 import Hero from "@/components/Hero";
-// import NewsLetter from "@/components/NewsLetter";
-import Products from "@/components/Products";
-import Video from "@/components/Video";
 
 export default function Home() {
   return (
-    <div className="gap-12">
+    <div >
       <Hero />
-      <Features />
-      <Products />
-      <Video />
+      <div className="w-full flex justify-center">
+        <CarouselHero />
+      </div>
+      <Description/>
       <Form />
     </div>
   );
