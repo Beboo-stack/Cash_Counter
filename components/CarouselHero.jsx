@@ -42,7 +42,7 @@ const CarouselHero = () => {
 
   return (
     <div id="products" className="p slider-container max-w-xs md:max-w-lg  ">
-<p className="text-lg mb-10 mt-10">Product<p/>
+<p className="text-lg mb-10 mt-10">Product</p>
       <Swiper
         ref={sliderRef}
         spaceBetween={30} // Add spacing between slides
