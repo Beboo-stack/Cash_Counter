@@ -1,6 +1,36 @@
+"use client";
 import React from "react";
+import { useState } from "react";
 
 const Form = () => {
+  const initialData = {
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  };
+
+  const [formData, setFormData] = useState(initialData);
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  console.log(formData);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email) return;
+
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify({ ...formData }),
+      });
+    } catch (error) {}
+  };
+
   return (
     <section id="contact" className="bg-[#FFFBDA] ">
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 ">
@@ -9,7 +39,7 @@ const Form = () => {
             <h2 className="text-xl font-bold sm:text-3xl pt-8 text-center text-orange-500">
               Contact Us
             </h2>
-            <form action="#" className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="sr-only" htmlFor="name">
                   Name
@@ -18,6 +48,9 @@ const Form = () => {
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Name"
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   id="name"
                 />
               </div>
@@ -30,6 +63,9 @@ const Form = () => {
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Email address"
                     type="email"
+                    onChange={handleChange}
+                    name="email"
+                    value={formData.email}
                     id="email"
                   />
                 </div>
@@ -42,6 +78,9 @@ const Form = () => {
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
                     placeholder="Phone Number"
                     type="tel"
+                    onChange={handleChange}
+                    name="phone"
+                    value={formData.phone}
                     id="phone"
                   />
                 </div>
@@ -56,6 +95,9 @@ const Form = () => {
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Message"
                   rows="8"
+                  name="message"
+                  onChange={handleChange}
+                  value={formData.message}
                   id="message"
                 ></textarea>
               </div>
