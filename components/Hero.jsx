@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0 ">
           <div className="max-w-xl mb-6">
             <div className="text-center">
-              <p className="inline-block text-center px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+              <p className="inline-block text-center px-3 py-px mb-4 text-sm font-semibold tracking-wider text-white uppercase rounded-full bg-teal-accent-400">
                 Brand new
               </p>
             </div>

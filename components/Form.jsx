@@ -6,7 +6,7 @@ const Form = () => {
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-1 justify-center">
           <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12 ">
-            <h2 className="text-xl font-bold text-gray-900 sm:text-3xl pt-8 text-center">
+            <h2 className="text-xl font-bold sm:text-3xl pt-8 text-center text-orange-500">
               Contact Us
             </h2>
             <form action="#" className="space-y-4">
@@ -62,7 +62,7 @@ const Form = () => {
               <div className="mt-4">
                 <button
                   type="submit"
-                  className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                  className=" inline-block w-full rounded-xl bg-orange-600 px-5 py-3 font-medium text-white sm:w-auto"
                 >
                   Send Enquiry
                 </button>
