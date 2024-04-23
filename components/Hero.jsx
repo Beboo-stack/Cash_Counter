@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0 ">
           <div className="max-w-xl mb-6">
             
-            <h2 className="max-w-lg text-center mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+            <h2 className="max-w-lg text-center mb-6 pt-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
               The quick, brown fox
               <br className="hidden md:block" />
               jumps over{" "}
