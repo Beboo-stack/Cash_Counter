@@ -9,7 +9,7 @@ import {
   Preview,
   Section,
   Text,
-} from "@/react-email/components";
+} from "@react-email/components";
 import * as React from "react";
 
 export const EmailTemplate = ({ firstName, email, phone, message }) => (
