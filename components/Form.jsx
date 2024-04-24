@@ -16,8 +16,6 @@ const Form = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  console.log(formData);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -29,6 +27,12 @@ const Form = () => {
         body: JSON.stringify({ ...formData }),
       });
     } catch (error) {}
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (

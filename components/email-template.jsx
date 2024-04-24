@@ -21,7 +21,7 @@ export const EmailTemplate = ({ firstName, email, phone, message }) => (
     </Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img src="/logo.png" width="420" height="300" alt="Logo" style={logo} />
+        {/* <Img src="/logo.png" width="420" height="300" alt="Logo" style={logo} /> */}
         <Text style={paragraph}>Hi {firstName},</Text>
         <Text style={paragraph}>{message}</Text>
 
@@ -31,7 +31,6 @@ export const EmailTemplate = ({ firstName, email, phone, message }) => (
           The Sleem Tech team
         </Text>
         <Hr style={hr} />
-        <Text style={footer}>Subscribe to Ali Sleem</Text>
       </Container>
     </Body>
   </Html>
