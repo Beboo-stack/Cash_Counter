@@ -4,7 +4,8 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore from "swiper";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -42,13 +43,15 @@ const CarouselHero = () => {
 
   return (
     <div id="products" className="p slider-container max-w-xs md:max-w-lg  ">
-<p className="text-4xl font-bold mb-10 text-center text-orange-500">Product</p>
+      <p className="text-4xl font-bold mb-10 text-center text-orange-500">
+        Product
+      </p>
       <Swiper
         ref={sliderRef}
         spaceBetween={30} // Add spacing between slides
         slidesPerView={1} // Show one slide at a time
         navigation // Enable navigation arrows
-        autoplay={{ delay: 3000 }} // Optional: Enable autoplay with 3 seconds delay
+        autoplay={{ delay: 3000, disableOnInteraction: true }} // Optional: Enable autoplay with 3 seconds delay
       >
         {images.map((item) => (
           <SwiperSlide key={item.src}>
