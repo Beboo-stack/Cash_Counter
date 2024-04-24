@@ -9,7 +9,7 @@ import {
   Preview,
   Section,
   Text,
-} from "@react-email/components";
+} from "@/react-email/components";
 import * as React from "react";
 
 export const EmailTemplate = ({ firstName, email, phone, message }) => (
@@ -21,13 +21,7 @@ export const EmailTemplate = ({ firstName, email, phone, message }) => (
     </Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img
-          src="/logo.png"
-          width="420"
-          height="300"
-          alt="Logo"
-          style={logo}
-        />
+        <Img src="/logo.png" width="420" height="300" alt="Logo" style={logo} />
         <Text style={paragraph}>Hi {firstName},</Text>
         <Text style={paragraph}>{message}</Text>
 
