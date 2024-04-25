@@ -40,7 +40,7 @@ const Form = () => {
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-1 justify-center">
           <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12 ">
-            <h2 className="text-3xl font-bold sm:text-3xl pt-8 text-center text-orange-500">
+            <h2 className="text-3xl font-bold sm:text-3xl pt-8 mb-8 text-center text-orange-500">
               Contact Us
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">

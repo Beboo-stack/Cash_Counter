@@ -2,14 +2,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 
 const Header = () => {
   const menuData = [
     {
       id: 1,
       title: "Home",
-      path: "/",
+      path: "#",
       newTab: false,
     },
     {
@@ -25,6 +24,8 @@ const Header = () => {
       newTab: false,
     },
   ];
+
+  const [activePath, setActivepath] = useState("#");
 
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
@@ -45,15 +46,6 @@ const Header = () => {
   };
 
   const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
-      setOpenIndex(index);
-    }
-  };
-
-  const usePathName = usePathname();
 
   return (
     <header
@@ -64,7 +56,7 @@ const Header = () => {
       }`}
     >
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between ">
+        <div class="flex h-16 overflow-hidden items-center justify-between ">
           <div class="md:flex md:items-center md:gap-12">
             <a class="block text-[#FF9800]" href="#">
               <span class="sr-only">Home</span>
@@ -76,10 +68,13 @@ const Header = () => {
             <nav aria-label="Global">
               <ul class="flex items-center gap-6 text-sm">
                 {menuData.map((item, id) => (
-                  <li key={id}>
+                  <li className="text-[17px] font-medium" key={id}>
                     <Link
                       href={item.path}
-                      className="hover:text-orange-500 transition-all duration-300"
+                      className={`hover:text-orange-500 transition-all duration-300 ${
+                        activePath === item.path ? "text-orange-500" : ""
+                      }`}
+                      onClick={() => setActivepath(item.path)}
                     >
                       {item.title}
                     </Link>
@@ -122,14 +117,19 @@ const Header = () => {
                 }`}
               >
                 <ul className="block lg:flex lg:space-x-12">
-                  {menuData.map((menuItem, index) => (
+                  {menuData.map((item, index) => (
                     <li key={index} className="group relative">
                       <Link
-                        onClick={navbarToggleHandler}
-                        href={menuItem.path}
-                        className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 transition-all duration-300 hover:text-orange-500`}
+                        onClick={() => {
+                          setActivepath(item.path);
+                          navbarToggleHandler();
+                        }}
+                        href={item.path}
+                        className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 transition-all duration-300 hover:text-orange-500 ${
+                          activePath === item.path ? "text-orange-500" : ""
+                        }`}
                       >
-                        {menuItem.title}
+                        {item.title}
                       </Link>
                     </li>
                   ))}

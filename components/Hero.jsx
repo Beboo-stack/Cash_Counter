@@ -8,13 +8,12 @@ const Hero = () => {
     >
       <div className="flex flex-col items-center justify-center lg:flex-row">
         <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0 ">
-          <div className="max-w-xl mb-6">
-            
+          <div className="max-w-xl mb-6 mt-12">
             <h2 className="max-w-lg text-center mb-6 pt-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
               The quick, brown fox
               <br className="hidden md:block" />
-              jumps over{" "}
-              <span className="inline-block text-deep-purple-accent-400">
+              jumps over,{" "}
+              <span className="inline-block text-white text-deep-purple-accent-400">
                 a lazy dog
               </span>
             </h2>
