@@ -218,7 +218,10 @@ const Form = () => {
                   <div className="flex p-2  w-full gap-3">
                     <label
                       htmlFor="radio_1"
-                      className="flex gap-3 w-full border-2 p-2 rounded-xl hover:border-gray-500 duration-300 transition-all"
+                      className={`flex gap-3 w-full border-2 p-2 rounded-xl hover:border-gray-500 duration-300 transition-all  ${
+                        formData.selcetedOption === "دفع عند الاستلام" &&
+                        "border-gray-500"
+                      }`}
                     >
                       <input
                         checked={formData.selcetedOption === "دفع عند الاستلام"}
@@ -242,7 +245,11 @@ const Form = () => {
                   <div className="flex p-2  w-full gap-3">
                     <label
                       htmlFor="radio_2"
-                      className="flex gap-3 w-full border-2 p-2 rounded-xl hover:border-gray-500 duration-300 transition-all"
+                      className={`flex gap-3 w-full border-2 p-2 rounded-xl hover:border-gray-500 duration-300 transition-all  ${
+                        formData.selcetedOption ===
+                          "الدفع عن طريق المحافظ الاكترونية" &&
+                        "border-gray-500"
+                      }`}
                     >
                       <input
                         checked={
@@ -271,7 +278,11 @@ const Form = () => {
                   <div className="flex p-2  w-full gap-3">
                     <label
                       htmlFor="radio_3"
-                      className="flex gap-3 w-full border-2 p-2 rounded-xl hover:border-gray-500 duration-300 transition-all"
+                      className={`flex gap-3 w-full border-2 p-2 rounded-xl hover:border-gray-500 duration-300 transition-all  ${
+                        formData.selcetedOption ===
+                          "الدفع عن طريق البطاقات الائتمانية" &&
+                        "border-gray-500"
+                      }`}
                     >
                       <input
                         checked={
