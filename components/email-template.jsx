@@ -12,7 +12,14 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-export const EmailTemplate = ({ firstName, email, phone, message }) => (
+export const EmailTemplate = ({
+  firstName,
+  phone,
+  address,
+  quantity,
+  total,
+  selcetedOption,
+}) => (
   <Html>
     <Head />
     <Preview>
@@ -23,13 +30,12 @@ export const EmailTemplate = ({ firstName, email, phone, message }) => (
       <Container style={container}>
         {/* <Img src="/logo.png" width="420" height="300" alt="Logo" style={logo} /> */}
         <Text style={paragraph}>Hi {firstName},</Text>
-        <Text style={paragraph}>{message}</Text>
+        <Text style={paragraph}>{phone}</Text>
+        <Text style={paragraph}>{address}</Text>
+        <Text style={paragraph}>{quantity}</Text>
+        <Text style={paragraph}>{total}</Text>
+        <Text style={paragraph}>{selcetedOption}</Text>
 
-        <Text style={paragraph}>
-          Best,
-          <br />
-          The Sleem Tech team
-        </Text>
         <Hr style={hr} />
       </Container>
     </Body>

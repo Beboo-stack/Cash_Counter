@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import client from "@/app/utils/utils";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -13,6 +14,27 @@ import "swiper/css/pagination";
 SwiperCore.use([Navigation, Autoplay]); // Register Swiper modules
 
 const CarouselHero = () => {
+  // Data Store
+  const [data, setData] = useState([]);
+
+  // Fetch Data
+  const getData = async () => {
+    try {
+      const response = await client.getEntries({
+        content_type: "product",
+      });
+      setData(response.items);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  console.log(data);
+
   const sliderRef = useRef(null);
 
   const images = [
@@ -37,13 +59,25 @@ const CarouselHero = () => {
       type: "image",
     },
     {
-      src: "/video.mp4",
+      src: "/6.jpg",
+      type: "image",
+    },
+    {
+      src: "/7.jpg",
+      type: "image",
+    },
+    {
+      src: "/8.jpg",
+      type: "image",
     },
   ];
 
   return (
-    <div id="products" className="p slider-container max-w-xs md:max-w-lg ">
-      <p className="text-4xl font-bold mb-10 text-center text-orange-500">
+    <div
+      id="products"
+      className="mb-[100px] slider-container max-w-sm md:max-w-2xl lg:w-[1000px] "
+    >
+      <p className="text-4xl md:text-5xl font-bold mb-10 text-center text-orange-500">
         Product
       </p>
       <Swiper
@@ -51,17 +85,32 @@ const CarouselHero = () => {
         spaceBetween={30} // Add spacing between slides
         slidesPerView={1} // Show one slide at a time
         navigation // Enable navigation arrows
+        className="w-full"
         autoplay={{ delay: 3000, disableOnInteraction: true }} // Optional: Enable autoplay with 3 seconds delay
       >
         {images.map((item) => (
           <SwiperSlide key={item.src}>
-            {item.type === "image" ? (
-              <Image src={item.src} alt="" width={500} height={500} />
-            ) : (
-              <video className="w-full h-full self-center" controls>
-                <source src={item.src} type="video/mp4" />
-              </video>
-            )}
+            {/* <Image
+            key={item.src}
+              alt=""
+              src={
+                "http:" +
+                item?.fields?.slider?.map(
+                  (asset) => asset?.fields?.file?.url
+                )[0]
+              }
+              width={500}
+              height={500}
+              className="w-full"
+            /> */}
+
+            <Image
+              src={item.src}
+              alt=""
+              className="w-full object-fill"
+              width={500}
+              height={500}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

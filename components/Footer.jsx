@@ -118,7 +118,7 @@ const Footer = () => {
 
           <div class="grid grid-cols-1 gap-8 text-center lg:flex lg:text-left justify-center items-center">
             <div>
-              <Link href="#">
+              <Link href="/">
                 <strong class="font-medium text-gray-900  hover:text-orange-500 duration-300 transition-all">
                   {" "}
                   Home{" "}
@@ -142,7 +142,7 @@ const Footer = () => {
                 "
                 >
                   {" "}
-                  Contact Us{" "}
+                  Order{" "}
                 </strong>
               </Link>
             </div>

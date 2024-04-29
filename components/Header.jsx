@@ -2,13 +2,35 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import client from "@/app/utils/utils";
 
 const Header = () => {
+  // // Data Store
+  // const [data, setData] = useState([]);
+
+  // // Fetch Data
+  // const getData = async () => {
+  //   try {
+  //     const response = await client.getEntries({
+  //       content_type: "features",
+  //     });
+  //     setData(response.items);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // console.log(data)
+
   const menuData = [
     {
       id: 1,
       title: "Home",
-      path: "#",
+      path: "/",
       newTab: false,
     },
     {
@@ -19,7 +41,7 @@ const Header = () => {
     },
     {
       id: 3,
-      title: "Contact Us",
+      title: "Order",
       path: "#contact",
       newTab: false,
     },
@@ -58,7 +80,7 @@ const Header = () => {
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 overflow-hidden items-center justify-between ">
           <div class="md:flex md:items-center md:gap-12">
-            <a class="block text-[#FF9800]" href="#">
+            <a class="block text-[#FF9800]" href="/">
               <span class="sr-only">Home</span>
               <Image src="/logo.png" alt="" width={150} height={60} />
             </a>
